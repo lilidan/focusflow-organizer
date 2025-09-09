@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FocusFlow Organizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>FocusFlow Organizer</h1>
+            <p>Stay focused, reduce procrastination, organize efficiently</p>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="tasks">Tasks</button>
+            <button class="tab-btn" data-tab="timer">Pomodoro</button>
+            <button class="tab-btn" data-tab="collaborate">Collaborate</button>
+        </nav>
+
+        <main>
+            <section id="tasks" class="tab-content active">
+                <div class="task-controls">
+                    <input type="text" id="taskInput" placeholder="Add a new task...">
+                    <button id="addTaskBtn">Add Task</button>
+                    <select id="prioritySelect">
+                        <option value="low">Low Priority</option>
+                        <option value="medium">Medium Priority</option>
+                        <option value="high">High Priority</option>
+                    </select>
+                </div>
+                <div class="task-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="pending">Pending</button>
+                    <button class="filter-btn" data-filter="completed">Completed</button>
+                    <button class="filter-btn" data-filter="high">High Priority</button>
+                </div>
+                <ul id="taskList" class="task-list"></ul>
+                <div class="task-stats">
+                    <span id="taskStats">0 tasks total</span>
+                </div>
+            </section>
+
+            <section id="timer" class="tab-content">
+                <div class="timer-container">
+                    <div class="timer-display">
+                        <div class="time-circle">
+                            <span id="timeDisplay">25:00</span>
+                        </div>
+                    </div>
+                    <div class="timer-controls">
+                        <button id="startBtn" class="timer-btn start">Start</button>
+                        <button id="pauseBtn" class="timer-btn pause">Pause</button>
+                        <button id="resetBtn" class="timer-btn reset">Reset</button>
+                    </div>
+                    <div class="timer-settings">
+                        <div class="setting-group">
+                            <label>Work Duration (min):</label>
+                            <input type="number" id="workDuration" value="25" min="1" max="60">
+                        </div>
+                        <div class="setting-group">
+                            <label>Break Duration (min):</label>
+                            <input type="number" id="breakDuration" value="5" min="1" max="30">
+                        </div>
+                    </div>
+                    <div class="timer-stats">
+                        <div class="stat">
+                            <span class="stat-label">Sessions Today:</span>
+                            <span id="sessionsCount">0</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Current Mode:</span>
+                            <span id="currentMode">Work</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="collaborate" class="tab-content">
+                <div class="collab-container">
+                    <div class="user-section">
+                        <h3>Your Profile</h3>
+                        <input type="text" id="usernameInput" placeholder="Enter your name">
+                        <button id="setUsernameBtn">Set Name</button>
+                        <div id="currentUser" class="current-user"></div>
+                    </div>
+                    
+                    <div class="shared-tasks">
+                        <h3>Shared Task Board</h3>
+                        <div class="shared-controls">
+                            <input type="text" id="sharedTaskInput" placeholder="Add shared task...">
+                            <input type="text" id="assigneeInput" placeholder="Assign to...">
+                            <button id="addSharedTaskBtn">Add Shared Task</button>
+                        </div>
+                        <ul id="sharedTaskList" class="shared-task-list"></ul>
+                    </div>
+
+                    <div class="team-activity">
+                        <h3>Team Activity</h3>
+                        <div id="activityFeed" class="activity-feed"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
